@@ -1,0 +1,8 @@
+<% if @todo.errors.any? %>
+    <h3>The Following Errors Prevented this todo from being saved </h3>
+        <ul>
+            <% @todo.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+<% end %>
