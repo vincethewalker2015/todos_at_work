@@ -1,0 +1,2 @@
+Move Index Page to between 6 and 7
+In Chapter 5 move Bootstrap flash message to chapter 12

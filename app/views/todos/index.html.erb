@@ -1,0 +1,16 @@
+<h2>All Todos</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% @todos.each do |todo| %>
+    <tr>
+      <td><%= todo.name %></td>
+      <td><%= todo.description %></td>
+      <td><%= link_to "Edit", edit_todo_path(todo) %></td>
+      <td><%= link_to "View", todo_path(todo) %></td>
+      <td><%= link_to "Delete", todo_path(todo), method: :delete, data: { confirm: "Are You Sure?"} %></td>
+    </tr>
+  <% end %>
+</table>
