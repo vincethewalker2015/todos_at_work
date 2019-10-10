@@ -1,0 +1,76 @@
+Adding Complete Navbar URL to Mobile Header
+
+app/views/layouts/_header.erb
+
+lib/locale/en.yml
+
+app/views/layouts/_mainnav.erb
+
+Languages:
+
+German	 "HI Mitglied Vorteile",		 https://www.hihostels.com/de/tripbooks/hi-membership-benefits-223464
+English	  "Local Membership Benefits"	https://www.hihostels.com/tripbooks/hi-membership-benefits-223464
+Spanish	 "Beneficios del Miembro HI ", 	https://www.hihostels.com/es/tripbooks/hi-membership-benefits-223464
+French	 "Avantages membres de HI ",	 https://www.hihostels.com/fr/tripbooks/hi-membership-benefits-223464
+Italian	 "HI Vantaggi Membership", 	https://www.hihostels.com/it/tripbooks/hi-membership-benefits-223464
+Japanese	 " Eのメンバーシップを購入します", https://www.hihostels.com/ja/tripbooks/hi-membership-benefits-223464
+Portuguese	 "Benefícios dos membros HI", 	https://www.hihostels.com/pt/tripbooks/hi-membership-benefits-223464
+
+In app/views/layouts/_header.erb
+Line 89 Add Code from _mainnav.erb (from line 56 to line 83)
+
+<% unless @cms_pages["tabs-nav"].empty? %>
+          <% @cms_pages["tabs-nav"].each do |page| %>
+            <% if page.meta_keywords && page.meta_keywords.downcase == 'menu' %>
+              <li class="dropdown nav-buttons main-nav-dropdown">
+                <a href class="dropdown-toggle" data-toggle="dropdown" id=<%="menu-#{page.id}"%>>
+                  <%= page.title.html_safe %> <%= page.body.html_safe %><!-- <b class="caret"></b> -->
+                </a>
+               <!--  <div class="dropdown-menu nav-dropdown" role="menu" aria-labelledby=<%="menu-#{page.id}"%>>
+                  <%= page.body.html_safe %>
+                </div> -->
+              </li>
+            <% elsif page.meta_keywords && page.meta_keywords.downcase == 'link' %>
+              <li class="nav-buttons #mobile-hidden">
+                <a href="<%= page.body.gsub('<p>','').gsub('</p>','').html_safe %>" <%= 'target="#"' if page.body.downcase.gsub('<p>','').start_with? 'http'%>>
+                  <%= page.title.html_safe %>
+                </a>
+              </li>
+            <% else %>
+              <li class="nav-buttons groups-nav-button<%= " active" if check_path_info("/tabs-nav/#{page.cached_slug.to_sym}") %>">
+                <a href="<%= url(:pages, :show, { :location => page.location, :slug => page.cached_slug }.merge(locale_params)) %>">
+                  <%= format_for_main_nav page.title %>
+                  <span class="active-tab-right"></span>
+                  <span class="active-tab-left"></span>
+                </a>
+              </li>
+            <% end %>
+          <% end %>
+        <% end %>
+
+In
+app/stylesheets/partials/mobile-structural/_header.scss
+look for:  "dropdown.main-nav-dropdown" line:198
+comment out: ''// display: none;''
+
+
+In
+app/views/layouts/_mainnav.erb
+Look for line 60:
+<a href class="dropdown-toggle " data-toggle="dropdown" id=<%="menu-#{page.id}"%>>
+
+next to dropdown-toggle, Add: dropdown-mobile in the same class
+
+In
+app/stylesheets/partials/mobile-structural/_header.scss
+Approx Line 203
+
+Add
+.dropdown-mobile {
+  display: none
+}
+
+
+only-mobile {
+ display: none;
+}
