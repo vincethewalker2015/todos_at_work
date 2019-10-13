@@ -1,23 +1,23 @@
 <div class="row">
-		<div class="col-md-3 col-md-offset-4">
-			<div class="well"> 
-				<%= form_for @todo do |f| %>
-					<p>
-						<%= f.label :name %>
-						<%= f.text_field :name %>
-					</p>
+  <div class="col-md-3 col-md-offset-4">
+    <div class="well"> 
+      <%= form_for @todo do |f| %>
+      <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </p>
 
-					<p>
-						<%= f.label :description %>
-						<%= f.text_area :description %>
-					</p>
+      <p>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </p>
 
-					<p>
-						<%= f.submit %>
-					</p>
+      <p>
+        <%= f.submit %>
+      </p>
 
-				<% end %>
-				<%= link_to "Index", todos_path %>
-			</div>
-		</div>
-	</div>
+      <% end %>
+        <%= link_to "Index", todos_path %>
+    </div>
+  </div>
+</div>

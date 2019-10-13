@@ -1,15 +1,14 @@
-
 <h2 align="center">Show Todo</h2>
 <div class="row">
-<div class="col-md-8 col-md-offset-4">
+  <div class="col-md-8 col-md-offset-4">
     <p>
-       <%= @todo.name %> 
+      <%= @todo.name %> 
     </p>
     <br />
     <p>
-        <%= @todo.description %>
+      <%= @todo.description %>
     </p>
-    <%= link_to "Edit this Todo", edit_todo_path(@todo) %>
-    <%=link_to "Back To Index", todos_path %>
-</div>
+      <%= link_to "Edit this Todo", edit_todo_path(@todo) %>
+      <%=link_to "Back To Index", todos_path %>
+  </div>
 </div>

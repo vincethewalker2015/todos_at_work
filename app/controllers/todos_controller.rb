@@ -1,14 +1,14 @@
 class TodosController < ApplicationController
+  
+  def index
+    @todos = Todo.all
+  end
 
-	def index
-	  @todos = Todo.all
-	end
+  def new
+    @todo = Todo.new
+  end
 
-	def new
-	  @todo = Todo.new
-	end
-
-	def create
+  def create
     @todo = Todo.new(todo_params)
     if @todo.save
       flash[:success] = "Post Sucessfully Created"
@@ -16,11 +16,12 @@ class TodosController < ApplicationController
     else
       render 'new'
     end
-	end
 
-	def show
+  end
+
+  def show
     @todo = Todo.find(params[:id])
-	end
+  end
 
   def edit
     @todo = Todo.find(params[:id])
@@ -43,10 +44,10 @@ class TodosController < ApplicationController
     redirect_to todos_path
   end
 
-	private
+  private
 
 	def todo_params
 	  params.require(:todo).permit(:name, :description)
 	end
-
+  
 end
