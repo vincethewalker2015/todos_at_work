@@ -12,7 +12,7 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Bootstrap for CSS Styling
-#gem 'bootstrap-sass', '3.4.1'
+gem 'bootstrap-sass', '3.3.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -56,6 +56,10 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'minitest', '5.11.3'
+  gem 'minitest-reporters', '1.3.8'
+  gem 'guard', '2.15.0'
+  gem 'guard-minitest', '2.4.6'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end

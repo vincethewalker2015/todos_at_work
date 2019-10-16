@@ -1,6 +1,7 @@
-<div class="row">
+<div align="center">
+  <div class="row">
   <div class="col-md-3 col-md-offset-4">
-    <div class="well"> 
+    <div class="well">
       <%= form_for @todo do |f| %>
       <p>
         <%= f.label :name %>
@@ -13,11 +14,12 @@
       </p>
 
       <p>
-        <%= f.submit %>
+        <%= f.submit class: "btn btn-primary" %>
       </p>
 
       <% end %>
-        <%= link_to "Index", todos_path %>
+        <%= link_to "Index", todos_path, class: "btn btn-warning" %>
     </div>
   </div>
+</div>
 </div>
