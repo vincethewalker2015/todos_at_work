@@ -74,3 +74,16 @@ Add
 only-mobile {
  display: none;
 }
+
+
+Chapter 17
+incorrect text 'rails.generate.controller Users..
+Change to: 'rails generate model User name:string email:string'
+
+In User form
+Amend missing code under <%= f.label :name %>..
+start_with
+
+<div class="col-md-8">
+    <%= f.email_field :name, class: 'form-control', placeholder: "Enter your name" %>
+</div>
