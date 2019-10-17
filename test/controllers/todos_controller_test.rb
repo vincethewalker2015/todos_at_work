@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class TodosControllerTest < ActionDispatch::IntegrationTest
+
+  def setup
+    
+  end
+
   test "should get index" do
     get todos_index_url
     assert_response :success

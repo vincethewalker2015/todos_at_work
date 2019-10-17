@@ -1,12 +1,8 @@
 Move Index Page to between 6 and 7
-In Chapter 5 move Bootstrap flash message to chapter 15 (under the form)
-If Bootstrap navbar overhangs the body, add in css file
-body {
-  padding-top: 70px;
-}
+---------------
 
-In Chapter 12 under Modify Pages
-@projects should be @todos (Check all of this code, there are syntax errors)
+
+
 Code in Chapter 15 is wrong should be:
 
 <div align="center">
