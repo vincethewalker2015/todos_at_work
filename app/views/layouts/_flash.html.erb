@@ -1,11 +1,12 @@
 
+
+
+
 <% flash.each do |name, msg| %>
-  <ul>
-    <li><%= msg %></li>
-  </ul>
+	<div class="alert alert-<%= name %>">
+			<%= msg %>
+	</div>
 <% end %>
-
-
 
 
 
@@ -13,11 +14,11 @@
 
 	<!-- <div class="row">
 		<div class="col-md-10 col-md-offset-1">
-			<% flash.each do |name, msg| %>
-				<div class="alert alert-<%= name %>">
+			<%# flash.each do |name, msg| %>
+				<div class="alert alert-<#= name %>">
 					<a href="#" class="close" data-dismiss="alert">×>
-					<%= msg %>
+					<%#= msg %>
 				</div>
-			<% end %>
+			<%# end %>
 		</div >
 	</div > -->

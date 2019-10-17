@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  
+
   def index
     @todos = Todo.all
   end
@@ -30,7 +30,7 @@ class TodosController < ApplicationController
   def update
     @todo = Todo.find(params[:id])
     if @todo.update(todo_params)
-      flash[:notice] = "Todo was Updated"
+      flash[:success] = "Todo was Updated"
       redirect_to todo_path(@todo)
     else
       render 'edit'
@@ -40,7 +40,7 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
-    flash[:notice] = "Todo Deleted"
+    flash[:danger] = "Todo Deleted"
     redirect_to todos_path
   end
 
@@ -49,5 +49,5 @@ class TodosController < ApplicationController
 	def todo_params
 	  params.require(:todo).permit(:name, :description)
 	end
-  
+
 end
