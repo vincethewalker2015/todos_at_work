@@ -10,10 +10,12 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(todo_params)
+    @todo.user = current_user
     if @todo.save
       flash[:success] = "Post Sucessfully Created"
       redirect_to todo_path(@todo)
     else
+      flash.now[:danger] = "Nope.. Try that again"
       render 'new'
     end
 
