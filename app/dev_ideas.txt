@@ -1,67 +1,6 @@
-Move Index Page to between 6 and 7
-In Chapter 5 move Bootstrap flash message to chapter 15 (under the form)
-If Bootstrap navbar overhangs the body, add in css file
-body {
-  padding-top: 70px;
-}
 
-In Chapter 12 under Modify Pages
-@projects should be @todos (Check all of this code, there are syntax errors)
-Code in Chapter 15 is wrong should be:
+---------------
 
-<div align="center">
 
-<div class="row">
-<div class="col-md-12">
-<%= form_for(@todo, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-<div class="form-group">
-<div class="control-label col-md-2">
-<%= f.label :name %>
-</div>
-<div class="col-md-8">
-<%= f.text_field :name, class: 'form-control', placeholder: "Name of todo", autofocus: true %>
-</div>
-</div>
-<div class="form-group">
-<div class="control-label col-md-2">
-<%= f.label :description %>
-</div>
-<div class="col-md-8">
-<%= f.text_area :description, rows: 5, class: 'form-control', placeholder: "Add todo description" %>
-</div>
-</div>
-<div class="form-group">
-<div class="col-md-offset-2 col-md-10">
-<%= f.submit class: "btn btn-primary" %>
-<%= link_to "Back to Index", todos_path, class: "btn btn-warning" %>
-</div>
-</div>
-<% end %>
-</div>
-</div>
 
-</div>
 
-Chapter 16 Code is incorrect and should be:
-
-<% if @todo.errors.any? %>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="panel panel-danger">
-        <div class="panel-heading">
-          <h2 class="panel-title">
-            <%= pluralize(@todo.errors.count, "error") %> prohibited this <%= @todo.class %>
-                from being saved:
-            </h2>
-            <div class="panel-body">
-              <ul>
-                <% @todo.errors.full_messages.each do |msg| %>
-                      <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>

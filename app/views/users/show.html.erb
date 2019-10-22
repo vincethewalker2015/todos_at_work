@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <h2 class="text-center">My Profile <%= @user.name %></h2>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well">
+          <p><span class="descriptionText">Name:</span><%= @user.name %></p>
+            <br />
+              <% if @user.todos.count != 0 %>
+                <p><span class="descriptionText">Todos:</span><%= @user.todos.count %></p>
+              <% else %>
+                <h4>You dont have any Todos yet...</h4>
+              <% end %>
+                <br />
+                 <p><span class="descriptionText">Email:</span><%= @user.email %></p> 
+                    <p>
+                        <%#= link_to "Log Out", login_path, method: :delete, class: "btn btn-danger" %>
+                        <%= link_to "Create a Todo", new_todo_path, class: "btn btn-success" %>
+                        <%= link_to "Todo List", todos_path, class: "btn btn-warning" %>
+                          <td><%= link_to "Edit", edit_user_path(current_user), class: "btn btn-primary bttn" %></td>
+                        <%# if logged_in? %>
+                          <td><%= link_to "Delete Me", user_path(current_user), method: :delete, data: {confirm: "Are you Sure?"}, 
+                                                                                                        class: "btn btn-danger bttn" %></td>
+                        <%# end %>
+                    </p>
+      </div>
+    </div>
+  </div>
+</div>
