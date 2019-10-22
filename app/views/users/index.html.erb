@@ -1,3 +1,16 @@
 <div class="well">
-    <h2>Users</h2>
+    <h2 align="center">All Users</h2>
 </div>
+
+ <div align="center">
+      <% @users.each do |user| %>
+        <div class="col-md-4 col-md-offset-4 well profile-black-white-thin row ">
+          <%# cycle('profile-black-white-thin-b', '') %>
+        <p class="descriptionText">Name:<%= user.name %> </p>
+        <p>Email: <%= user.email %></p>
+          <%= link_to "View", user_path(user), class: "btn btn-info bttn"%>
+          <%= link_to "Edit", edit_user_path(user), class: "btn btn-warning bttn" %>
+          <%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "Are you sure??"}, class: "btn btn-danger bttn" %>
+        </div>
+    <% end %>
+  </div>

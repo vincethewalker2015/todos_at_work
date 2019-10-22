@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -31,6 +36,14 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    session[:user_id] = nil
+    flash.now[:success] = "User Deleted"
+    redirect_to root_path
   end
 
     private
