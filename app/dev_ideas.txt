@@ -1,5 +1,5 @@
-
----------------
+Chapter 23 look for: "Add Code <%= if logged_in? && current_user == @todo.user %>"
+Remove the = to look like: <% if logged_in? && current_user == @todo.user %>
 
 
 

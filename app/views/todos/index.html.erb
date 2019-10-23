@@ -13,11 +13,13 @@
       <% @todos.each do |todo| %>
         <div class="col-md-4 col-md-offset-4 well profile-black-white-thin row ">
           <% cycle('profile-black-white-thin-b', '') %>
-        <p class="descriptionText">Project:<%= todo.name %> </p>
-        <p>Description: <%= todo.description %></p>
+        <p class=""><span class="descriptionText">Todo: </span><%= todo.name %> </p>
+        <p><span class="descriptionText">Todo Description: </span> <%= todo.description %></p>
           <%= link_to "View", todo_path(todo), class: "btn btn-info bttn"%>
-          <%= link_to "Edit", edit_todo_path(todo), class: "btn btn-warning bttn" %>
-          <%= link_to "Delete", todo_path(todo), method: :delete, data: {confirm: "Are you sure??"}, class: "btn btn-danger bttn" %>
+          <% if logged_in? && current_user == todo.user %>
+            <%= link_to "Edit", edit_todo_path(todo), class: "btn btn-warning bttn" %>
+            <%= link_to "Delete", todo_path(todo), method: :delete, data: {confirm: "Are you sure??"}, class: "btn btn-danger bttn" %>
+          <% end %>
         </div>
     <% end %>
   </div>

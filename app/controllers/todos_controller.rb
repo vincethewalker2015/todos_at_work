@@ -1,4 +1,6 @@
 class TodosController < ApplicationController
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @todos = Todo.all
@@ -50,6 +52,13 @@ class TodosController < ApplicationController
 
 	def todo_params
 	  params.require(:todo).permit(:name, :description)
-	end
+  end
+
+  def require_same_user
+    if current_user != @todo.user
+      flash[:danger] = "You can only edit or delete your own Todos"
+      redirect_to todos_path
+    end
+  end
 
 end

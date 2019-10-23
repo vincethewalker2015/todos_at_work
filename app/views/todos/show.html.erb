@@ -1,14 +1,14 @@
 <h2 align="center">Show Todo</h2>
 <div class="row">
-  <div class="col-md-8 col-md-offset-4">
+  <div class="col-md-8 col-md-offset-4 text-center">
     <p>
-      <%= @todo.name %> 
+       <span class="todo-show-title"><%= @todo.name %></span>
     </p>
     <br />
     <p>
       <%= @todo.description %>
     </p>
-      <%= link_to "Edit this Todo", edit_todo_path(@todo) %>
-      <%=link_to "Back To Index", todos_path %>
+      <%= link_to "Edit this Todo", edit_todo_path(@todo),  class: "btn btn-warning bttn"  %>
+      <%=link_to "Back To Index", todos_path,  class: "btn btn-primary bttn"  %>
   </div>
 </div>
