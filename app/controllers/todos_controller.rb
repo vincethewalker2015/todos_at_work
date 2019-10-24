@@ -55,7 +55,7 @@ class TodosController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @todo.user
+    if current_user != @todo.user and !current_user.admin?
       flash[:danger] = "You can only edit or delete your own Todos"
       redirect_to todos_path
     end

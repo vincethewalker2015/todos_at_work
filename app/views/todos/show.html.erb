@@ -7,11 +7,15 @@
       </p>
       <br />
       <p>
-        <%= @todo.description %>
+        Created by: <span class="todo-user-title"><%= @todo.user.name %></span>
+      </p>
+      <p>
+        <span class="todo-description-text"><%= @todo.description %></span>
       </p>
       <p>
         <%= link_to "Edit this Todo", edit_todo_path(@todo),  class: "btn btn-warning bttn"  %>
         <%=link_to "Back To Index", todos_path,  class: "btn btn-primary bttn"  %>
+        <%= link_to "Delete", todo_path(@todo), method: :delete, data: {confirm: "Are you sure??"}, class: "btn btn-danger bttn" %>
       </p>
     </div>
   </div>

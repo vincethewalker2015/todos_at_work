@@ -1,1 +1,13 @@
+<<<<<<< HEAD
+=======
+In Chapter 18 look for "To make first db association for “users” and “todos”
+Move Entire section back to end of Chapter 17
+
+Chapter 25
+under: user.admin?will be the value we will use to check if user is admin..
+Add "vin.save"
+
+
+
+>>>>>>> 28b99a8b11415f36778bdf55b24d9c342fb87e99
 

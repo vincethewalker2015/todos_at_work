@@ -9,10 +9,13 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-left">
 					<li><%= link_to "Home", root_path %></li>
+					<% if logged_in? %>
+            <li class="nav-name"><%= current_user.name %><%= "(Admin Status)" if current_user.admin? %></li>
+					<% end %>
 				</ul>
-				<ul class="nav navbar-nav navbar-left">
-					<li><%= link_to "Help" '#' %></li>
-					<li><%= link_to "About" '#' %></li>
+				<ul class="nav navbar-nav navbar-right">
+					<li><%= link_to "log In", login_path, class: "btn-btn-primary bttn" %></li>
+					<li><%= link_to "log Out", login_path, method: :delete, class: "btn btn-danger bttn" %></li>
 					<li><%= link_to "Create a Todo", new_todo_path %></li>
 				</ul>
 			</div>
