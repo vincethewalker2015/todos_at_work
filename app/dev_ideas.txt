@@ -1,5 +1,9 @@
-Chapter 23 look for: "Add Code <%= if logged_in? && current_user == @todo.user %>"
-Remove the = to look like: <% if logged_in? && current_user == @todo.user %>
+In Chapter 18 look for "To make first db association for “users” and “todos”
+Move Entire section back to end of Chapter 17
+
+Chapter 25
+under: user.admin?will be the value we will use to check if user is admin..
+Add "vin.save"
 
 
 
