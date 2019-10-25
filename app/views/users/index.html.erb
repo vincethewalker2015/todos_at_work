@@ -9,8 +9,12 @@
         <p class="descriptionText">Name:<%= user.name %> </p>
         <p>Email: <%= user.email %></p>
           <%= link_to "View", user_path(user), class: "btn btn-info bttn"%>
-          <%= link_to "Edit", edit_user_path(user), class: "btn btn-warning bttn" %>
-          <%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "Are you sure??"}, class: "btn btn-danger bttn" %>
+          <% if logged_in? && current_user.admin? %>
+            <%= link_to "Edit", edit_user_path(user), class: "btn btn-warning bttn" %>
+          <% end %>
+          <% if logged_in? && current_user.admin? && !user.admin? %>
+            <%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "Are you sure??"}, class: "btn btn-danger bttn" %>
+          <% end %>
         </div>
     <% end %>
   </div>

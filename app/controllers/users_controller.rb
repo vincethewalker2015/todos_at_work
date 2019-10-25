@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_user, except: [:index, :show,]
 
   def index
     @users = User.all
@@ -51,5 +52,7 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
+
+
 
 end
