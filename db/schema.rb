@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_24_131343) do
+ActiveRecord::Schema.define(version: 2019_10_26_092406) do
+
+  create_table "owners", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "todo_owners", force: :cascade do |t|
+    t.integer "todo_id"
+    t.integer "owner_id"
+  end
 
   create_table "todos", force: :cascade do |t|
     t.string "name"

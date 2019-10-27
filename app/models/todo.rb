@@ -3,5 +3,7 @@ class Todo < ApplicationRecord
 	validates :description, presence: true
 	belongs_to :user
 	validates :user_id, presence: true
+	has_many :todo_owners
+	has_many :owners, through: :todo_owners
 
 end
