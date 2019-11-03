@@ -13,16 +13,19 @@
                 <br />
                  <p><span class="descriptionText">Email:</span><%= @user.email %></p>
                     <p>
-                        <%#= link_to "Log Out", login_path, method: :delete, class: "btn btn-danger" %>
+                        
                         <%= link_to "Create a Todo", new_todo_path, class: "btn btn-success" %>
                         <%= link_to "Todo List", todos_path, class: "btn btn-warning" %>
                           <td><%= link_to "Edit", edit_user_path(current_user), class: "btn btn-primary bttn" %></td>
-                        <%# if logged_in? %>
+                       
                           <td><%= link_to "Log Out", login_path(current_user), method: :delete, class: "btn btn-default" %></td>
 
                           <td><%= link_to "Delete Me", user_path(current_user), method: :delete, data: {confirm: "Are you Sure?"},
                                                                                                         class: "btn btn-danger bttn" %></td>
-                        <%# end %>
+                        <% if current_user.admin? %>
+                          <%= link_to "Owner",  new_owner_path, class: "btn btn-primary" %>
+                        <% end %>
+                        
                     </p>
       </div>
     </div>
