@@ -61,7 +61,7 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 
 Capybara.configure do |config|
 
-  config.app_host          = 'https://staging.hihostels.com'
+  config.app_host          = 'https://mighty-brook-40975.herokuapp.com'
 end
 
 World(Capybara)
