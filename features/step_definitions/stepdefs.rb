@@ -1,18 +1,15 @@
-module GetTheHomePage
-  def get_me_home
-    @home
-  end
+
+Given("I am on the home page") do
+  pending # Write code here that turns the phrase above into concrete actions
 end
-World GetTheHomePage
 
-Given("there should be a home page") do
-    @home = 'home_page'
-  end
+When("I enter the {string}") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
 
-  When("I click on the url") do
-    @home_page = get_me_home
-  end
+Then("I should see {string}") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
 
-  Then("I should be directed to the home page {string}") do |home_page|
-    expect(@home_page).to.eq(home_page)
-  end
+
+

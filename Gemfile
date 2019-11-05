@@ -63,6 +63,7 @@ group :test do
   gem 'guard-minitest', '2.4.6'
   # Use Cucumber for BDD Testing
   gem 'cucumber-rails', require: false
+  gem 'rspec-expectations', '3.0'
   gem 'database_cleaner'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'

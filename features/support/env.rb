@@ -5,6 +5,7 @@
 # files.
 
 require 'cucumber/rails'
+require 'capybara'
 
 # frozen_string_literal: true
 
@@ -57,4 +58,11 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
+Capybara.configure do |config|
+
+  config.app_host          = 'https://staging.hihostels.com'
+end
+
+World(Capybara)
 
