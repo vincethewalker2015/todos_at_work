@@ -10,7 +10,7 @@
 				<ul class="nav navbar-nav navbar-left">
 					<li><%= link_to "Home", root_path %></li>
 					<% if logged_in? %>
-            <li class="nav-name"><%= current_user.name %><%= "(Admin Status)" if current_user.admin? %></li>
+            <li class="nav-name"><%= current_user.name %> <%= "(Admin Status)" if current_user.admin? %></li>
 					<% end %>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
