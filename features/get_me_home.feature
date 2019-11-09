@@ -5,7 +5,7 @@ Feature: Visit the homepage
 
   Scenario: Lets find the homepage
     When I am on "/some/page"
-    When I fill "username" with "everzet"
-    When I fill "password" with "123456"
+    When I fill "username" with "doctor-vinnie@yahoo.ca"
+    When I fill "password" with "password"
     When I press "login"
 
