@@ -1,3 +1,4 @@
+@javascript
 Feature: Visit the homepage
   In order to navigate in Todos at Work
   As a website user
@@ -11,9 +12,10 @@ Feature: Visit the homepage
     And I should see "Log In Here"
     Then I enter "doctor-vinnie@yahoo.ca" into the "Email" field
     And I enter "password" into the "Password" field
-    And I press "Log in"
-    And I wait for 5 seconds
+    And I press "Log in now"
+    And I wait for 10 seconds
     Then I should see "Log in Sucessfull"
+    
     
     
 
