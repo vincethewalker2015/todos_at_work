@@ -14,8 +14,8 @@
 					<% end %>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><%= link_to "log In", login_path, class: "btn-btn-primary bttn" %></li>
-					<li><%= link_to "log Out", login_path, method: :delete, class: "btn btn-danger bttn" %></li>
+					<li class="log-in"><%= link_to "log In", login_path, class: "btn btn-primary bttn" %></li>
+					<li class="log-out"><%= link_to "log Out", login_path, method: :delete, class: "btn btn-danger bttn" %></li>
 					<li><%= link_to "Create a Todo", new_todo_path %></li>
 				</ul>
 			</div>
