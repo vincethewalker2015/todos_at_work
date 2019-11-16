@@ -9,6 +9,11 @@ Feature: Visit the homepage
     And I should see "log In"
     When I click on the first ".btn"
     And I should see "Log In Here"
+    Then I enter "doctor-vinnie@yahoo.ca" into the "Email" field
+    And I enter "password" into the "Password" field
+    And I press "Log in"
+    And I wait for 5 seconds
+    Then I should see "Log in Sucessfull"
     
     
 
