@@ -1,0 +1,38 @@
+Feature: Visit the homepage
+  In order to navigate in Todos at Work
+  As a website user
+  I want to be able to visit and interact with the homepage
+
+  Scenario: See Carousel Items and General Description
+    Given I am on the home page
+    And I have accepted cookies
+    Then I should see "Hostelling International is a worldwide network of Not-for-Profit Youth Hostel Associations"
+    And I should see "Hostelling International (HI) is a charity"
+    And I should have 1 of "carousel-inner" class
+    And I should have 1 of "carousel-img" class
+
+  Scenario: See Tripbook Entries and show more Tripbook Entries
+    Given I am on the home page
+    And I have accepted cookies
+    And I should have 1 of "tripbook-entries" class
+    And I should have 24 of "entry-item" class
+
+  Scenario: See Cms Pages and visit Cms Pages
+    Given I am on the home page
+    And I have accepted cookies
+    Then I should see "Booking with us"
+    And I should see "Our network of hostels"
+    And I should see "Travelling Abroad"
+    When I select link "Your Bookings FAQs"
+    Then the current path should be "/pages/your-bookings-faqs"
+    And I should have 1 of "left-nav" class
+
+  Scenario: Subscribe
+    Given I am on the home page
+    And I have accepted cookies
+    And I should see "Subscribe"
+    And I should have 1 of "newsletter" class
+    When I enter "user@hihostels.com" into the "signup_request_email" field
+    And I press "Sign up"
+    And I wait for 5 seconds
+    Then I should see "Success! You are now signed up!"

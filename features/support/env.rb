@@ -6,6 +6,7 @@
 
 require 'cucumber/rails'
 require 'capybara'
+require 'pry'
 
 # frozen_string_literal: true
 
