@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <h2 class="text-center">Owner: <%= @Owner.name.capitalize %></h2>
+    <h2 class="text-center">Owner: <%= @owner.name.capitalize %></h2>
     <div class="col-md-6 col-md-offset-3">
       <div class="well">
         <br />
         <% if @owner.todos.count != 0 %>
-          <p><span class="descriptiontext">Assigned to:</span><%= @owner.todos.count %> todos</p>
+          <p><span class="descriptiontext">Assigned to:</span><%= pluralize(@owner.todos.count, "todo") if @owner.todos %></p>
         <% else %>
           <h4>You are not assigned any Todos yet..</h4>
         <% end %>
