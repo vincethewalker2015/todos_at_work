@@ -1,32 +1,41 @@
-<div align="center">
-
-  <div class="row">
-    <div class="col-md-12">
-      <%= form_for(@todo, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-      <div class="form-group">
-        <div class="control-label col-md-2">
-         <%= f.label :name %>
-        </div>
-        <div class="col-md-8">
-          <%= f.text_field :name, class: 'form-control', placeholder: "Name of todo", autofocus: true %>
-        </div>
-        </div>
-        <div class="form-group">
-        <div class="control-label col-md-2">
-          <%= f.label :description %>
-        </div>
-        <div class="col-md-8">
-          <%= f.text_area :description, rows: 5, class: 'form-control', placeholder: "Add todo description" %>
-        </div>
-        </div>
-        <div class="form-group">
-        <div class="col-md-8">
-         <%= f.submit class: "btn btn-primary" %>
-          <%= link_to "Back to Index", todos_path, class: "btn btn-warning" %>
-        </div>
-      </div>
-      <% end %>
-    </div>
+<div class="row">
+  <div class="col-md-12">
+          <%= form_for(@todo, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+           <div class="form-group">
+             <div class="control-label col-md-2">
+                <%= f.label :name %> 
+             </div>
+             <div class="col-md-8">
+               <%= f.text_field :name, class: 'form-control', placeholder: "Name of todo", autofocus: true %>
+             </div>
+           </div>
+          <div class="form-group">
+             <div class="control-label col-md-2">
+                <%= f.label :description %> 
+             </div>
+             <div class="col-md-8">
+               <%= f.text_area :description, rows: 5, class: 'form-control', placeholder: "Add todo description" %>
+             </div>
+           </div>
+           <% if logged_in? && current_user.admin? %>
+             <div class="form-group">
+             <div class="row check_box">
+               <div class="col-md-offset-2 col-md-8">
+                 <span class="control-label col-md-2 form-text">Assigned to:</span><%= f.collection_check_boxes :owner_ids, Owner.all, :id, :name do |cb| %>
+                 <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text } %>
+                 <% end %>
+                 </span>
+               </div> 
+             </div>
+           </div>
+           <% end %>
+          <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+              <%= f.submit class: "btn btn-primary" %> 
+              <%= link_to "Back to Index", todos_path, class: "btn btn-warning" %>
+            </div>
+          </div>
+        <% end %>
+      </p>
   </div>
-
 </div>

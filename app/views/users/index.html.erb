@@ -6,8 +6,8 @@
       <% @users.each do |user| %>
         <div class="col-md-4 col-md-offset-4 well profile-black-white-thin row ">
           <%# cycle('profile-black-white-thin-b', '') %>
-        <p class="descriptionText">Name:<%= user.name %> </p>
-        <p>Email: <%= user.email %></p>
+        <p class="descriptionText">Name: <%= user.name %> </p>
+        <p class="descriptionText">Email: <%= user.email %></p>
           <%= link_to "View", user_path(user), class: "btn btn-info bttn"%>
           <% if logged_in? && current_user.admin? %>
             <%= link_to "Edit", edit_user_path(user), class: "btn btn-warning bttn" %>

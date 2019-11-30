@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  #before_action :require_user, except: [:index, :show,]
+  #before_action :require_user, except: [:new, :index, :show,]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy]
 
   def index
     @users = User.all
@@ -13,10 +15,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "Profile has been created"
-      redirect_to users_path(@user)
+      flash.now[:success] = "Profile has been created"
+      redirect_to user_path(@user)
     else
-      flash[:danger] = "Ouch!! That didn't work.. Try that again"
+      flash.now[:danger] = "Ouch!! That didn't work.. Try that again"
       render 'new'
     end
   end
@@ -53,6 +55,18 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
+    def require_same_user
+      if current_user != @user and !current_user.admin?
+        flash[:danger] = "You can only edit your own Profile"
+        redirect_to todos_path
+      end
+    end
 
+    def require_admin
+      if logged_in? && !current_user.admin?
+        flash[:danger] = "Only admin users can perform this action"
+        redirect_to root_path
+      end
+    end
 
 end

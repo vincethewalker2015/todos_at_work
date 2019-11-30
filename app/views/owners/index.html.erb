@@ -8,12 +8,12 @@
           <%# cycle('profile-black-white-thin-b', '') %>
         <p class="descriptionText">Name:<%= owner.name %> </p>
           <%= link_to "View", owner_path(owner), class: "btn btn-info bttn"%>
-          <% if logged_in? && current_user.admin? %>
+          <%# if logged_in? && current_user.admin? %>
             <%= link_to "Edit", edit_owner_path(owner), class: "btn btn-warning bttn" %>
-          <% end %>
-          <% if logged_in? && current_user.admin? %>
+          <%# end %>
+          <%# if logged_in? && current_user.admin? && !user.admin? %>
             <%= link_to "Delete", owner_path(owner), method: :delete, data: {confirm: "Are you sure??"}, class: "btn btn-danger bttn" %>
-          <% end %>
+          <%# end %>
         </div>
     <% end %>
   </div>

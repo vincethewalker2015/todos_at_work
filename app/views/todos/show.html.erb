@@ -1,19 +1,20 @@
 <h2 align="center">Show Todo</h2>
 <div class="row">
-  <div class="col-md-6 col-md-offset-4">
+  <div class="col-md-8 col-md-offset-2">
     <div class="well">
       <p>
         <span class="todo-show-title"><%= @todo.name %></span>
       </p>
       <br />
       <p>
-        Created by: <span class="todo-user-title"><%= @todo.user.name %></span>
+        Description: <span class="todo-description-text"><%= @todo.description %><br />
+        Created by: <span class="todo-description-text"><%= @todo.user.name %><br />
+        Assigned to: <%= render @todo.owners %> as Owner</p>
       </p>
       <p>
-        <span class="todo-description-text"><%= @todo.description %></span>
-      </p>
-      <p>
-        <%= link_to "Edit this Todo", edit_todo_path(@todo),  class: "btn btn-warning bttn"  %>
+        <% if logged_in? && (current_user == @todo.user || current_user.admin?) %>
+          <%= link_to "Edit this Todo", edit_todo_path(@todo),  class: "btn btn-warning bttn"  %>
+        <% end %>
         <%=link_to "Back To Index", todos_path,  class: "btn btn-primary bttn"  %>
         <%= link_to "Delete", todo_path(@todo), method: :delete, data: {confirm: "Are you sure??"}, class: "btn btn-danger bttn" %>
       </p>

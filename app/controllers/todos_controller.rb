@@ -1,6 +1,7 @@
 class TodosController < ApplicationController
-  before_action :require_user, except: [:index, :show]
-  before_action :require_same_user, only: [:edit, :update, :destroy]
+  #before_action :set_todo, only: [:show, :edit, :update, :destroy]
+  #before_action :require_user, except: [:index, :show]
+  #before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @todos = Todo.all

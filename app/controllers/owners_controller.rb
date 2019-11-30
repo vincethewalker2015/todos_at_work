@@ -12,7 +12,7 @@ class OwnersController < ApplicationController
       @owner = Owner.new(owner_params)
       if @owner.save
         flash[:success] = "New Owner Created"
-        redirect_to users_path
+        redirect_to owners_path
       else
         render 'new'
       end
