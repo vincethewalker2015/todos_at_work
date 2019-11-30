@@ -5,5 +5,5 @@ class Todo < ApplicationRecord
 	validates :user_id, presence: true
 	has_many :todo_owners
 	has_many :owners, through: :todo_owners
-
+	has_many :comments, dependent: :destroy
 end
