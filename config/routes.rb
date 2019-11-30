@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'users/create'
   root 'pages#home'
   resources :users
-  resources :todos
+  resources :todos do
+    resources:comments, only: [:create]
+  end
   resources :owners
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

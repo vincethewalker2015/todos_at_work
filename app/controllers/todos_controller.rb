@@ -26,6 +26,8 @@ class TodosController < ApplicationController
 
   def show
     @todo = Todo.find(params[:id])
+    @comment = Comment.new
+    @comments = @todo.comments
   end
 
   def edit
