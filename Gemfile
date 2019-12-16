@@ -72,6 +72,7 @@ end
 group :production do
   # Use Postgres as the database for production (Heroku)
   gem 'pg'
+  gem 'redis'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
