@@ -1,1 +1,19 @@
 <h2 class="center">Chat Area</h2>
+<p align="center"><%= link_to "Todos List", todos_path, class: "btn btn-warning" %></p>
+<hr />
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 center-block">
+    <div class="messages" id="messages">
+      <%= render @messages %>
+    </div>
+
+    <div class="message-container align-center">
+        <%= form_for(@message, remote: true,  :html => {class: "form-horizontal", role: "form"}) do |f| %>
+          <%= f.text_area :content, class: "form-control", data: { behavior: "room_speaker" }, placeholder: "Write message here.." %><br /> 
+          <%= f.submit "Send", class: "btn btn-primary btn-lg", data: {send: "message" } %>
+        <% end %>
+        </div>
+    
+    </div>
+  </div>
+</div>
