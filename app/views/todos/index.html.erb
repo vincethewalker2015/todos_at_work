@@ -24,6 +24,7 @@
           <% if logged_in? && current_user == todo.user || current_user.admin? %>
             <%= link_to "Edit", edit_todo_path(todo), class: "btn btn-warning bttn" %>
             <%= link_to "Delete", todo_path(todo), method: :delete, data: {confirm: "Are you sure??"}, class: "btn btn-danger bttn" %>
+            <%= link_to "Chat", chat_path(current_user), class: "btn btn-success"%>
           <% end %>
         </div>
     <% end %>
