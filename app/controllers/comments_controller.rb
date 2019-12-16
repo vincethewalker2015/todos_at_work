@@ -6,8 +6,7 @@ class CommentsController < ApplicationController
     @comment = @todo.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      flash[:success] = "Comment creation Sucessful"
-      redirect_to todo_path(@todo)
+      ActionCable.server.broadcast “comments”, render(partial: ‘comments/comment’, object: @comment)
     else
       flash[:danger] = "Comment was not Created"
       redirect_to :back
