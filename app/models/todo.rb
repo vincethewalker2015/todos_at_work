@@ -6,4 +6,5 @@ class Todo < ApplicationRecord
 	has_many :todo_owners
 	has_many :owners, through: :todo_owners
 	has_many :comments, dependent: :destroy
+	has_one_attached :image
 end
