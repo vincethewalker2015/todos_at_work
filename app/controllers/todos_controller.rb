@@ -13,7 +13,6 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(todo_params)
-    @todo.image.attach(params[:todo][:image])
     @todo.user = current_user
     if @todo.save
       flash[:success] = "Post Sucessfully Created"
@@ -55,7 +54,7 @@ class TodosController < ApplicationController
   private
 
 	def todo_params
-	  params.require(:todo).permit(:name, :description, :image, owner_ids: [])
+	  params.require(:todo).permit(:name, :description, owner_ids: [])
   end
 
   def require_same_user
