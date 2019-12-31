@@ -14,7 +14,7 @@
         <div class="col-md-4 col-md-offset-4 well profile-black-white-thin row ">
           <% cycle('profile-black-white-thin-b', '') %>
         <p class=""><span class="descriptionText">Todo: </span><%= todo.name %> </p>
-        <p class="todoImage"><%= image_tag todo.image if todo.image.attached? %></p>
+        <p class="todoImage"><%#= image_tag todo.image if todo.image.attached? %></p>
         <p><span class="descriptionText">Todo Description: </span> <%= todo.description %></p>
         <% if todo.owners.count == 0 %>
           <h5>This Todo has not yet been assigned</h5>
