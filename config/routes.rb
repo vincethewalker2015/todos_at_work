@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
+  root 'pages#home'
   get 'users/new'
   get 'users/create'
-  root 'pages#home'
   resources :users
   resources :todos do
     resources:comments, only: [:create]
