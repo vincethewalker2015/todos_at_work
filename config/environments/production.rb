@@ -41,9 +41,9 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   # Store uploaded files on Amazon AWS. 
   if Rails.env.production?
-    storage :fog 
+    config.active_storage.service = :fog 
   else
-    storage :local 
+    config.active_storage.service = :local
   end
   #config.active_storage.service = :local
 
