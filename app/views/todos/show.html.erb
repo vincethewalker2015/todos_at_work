@@ -6,6 +6,7 @@
         <span class="todo-show-title">Subject: <%= @todo.name %></span>
       </p>
       <br />
+      <p class="show-image"><%= image_tag @todo.image if @todo.image.attached? %></p>
       <p>
         Description: <span class="todo-description-text"><%= @todo.description %><br />
         Created by: <span class="todo-description-text"><%= @todo.user.name %><br />

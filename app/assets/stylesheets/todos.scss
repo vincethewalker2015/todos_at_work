@@ -8,6 +8,11 @@
     font-weight: bold;
 }
 
+.index-image, img {
+    width: 50%;
+    border-radius: 5px;
+}
+
 // Show Page
 .todo-show-title {
     font-size: 24px;
@@ -33,4 +38,9 @@
 }
 .todoImage, img {
     width: 50%;
+}
+
+.show-image, img {
+    width: 70%;
+    border-radius: 5px;
 }
