@@ -31,6 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "aws-sdk-s3", '1.46.0', require: false
 gem 'mini_magick', '~> 4.9.5'
 gem 'image_processing', '1.9.3'
+gem 'carrierwave', '2.0.1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -73,6 +74,7 @@ end
 group :production do
   # Use Postgres as the database for production (Heroku)
   gem 'pg'
+  gem 'fog', '2.1.0'
   gem 'redis'
 end
 
