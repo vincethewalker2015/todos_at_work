@@ -28,8 +28,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # For Uploading Images in Production - Use AWS
-gem "aws-sdk-s3", require: false
-gem 'mini_magick', '~> 4.8'
+gem "aws-sdk-s3", '1.46.0', require: false
+gem 'mini_magick', '~> 4.9.5'
+gem 'image_processing', '1.9.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
